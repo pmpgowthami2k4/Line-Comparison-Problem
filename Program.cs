@@ -8,13 +8,18 @@ namespace LineComparison
         {
             Console.WriteLine("Welcome to Line Comparison Computation Program");
 
-            // Creating a line with two points
-            Line line = new Line(1, 2, 4, 6);
+            Line line1 = new Line(1, 2, 4, 6);
+            Line line2 = new Line(1, 2, 4, 6);
 
-            // Calculating length
-            double length = line.CalculateLength();
-
-            Console.WriteLine("Length of the Line is: " + length);
+            if (line1.Equals(line2))
+            {
+                Console.WriteLine("Both lines are equal.");
+            }
+            else
+            {
+                Console.WriteLine("Lines are not equal.");
+            }
         }
+
     }
 }

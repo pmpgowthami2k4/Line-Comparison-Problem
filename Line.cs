@@ -27,5 +27,24 @@ namespace LineComparison
             return length;
         }
 
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+                return false;
+
+            Line other = (Line)obj;
+
+            return this.x1 == other.x1 &&
+                   this.y1 == other.y1 &&
+                   this.x2 == other.x2 &&
+                   this.y2 == other.y2;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(x1, y1, x2, y2);
+        }
+
+
     }
 }
