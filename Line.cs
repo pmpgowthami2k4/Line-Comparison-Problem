@@ -2,7 +2,8 @@
 
 namespace LineComparison
 {
-    internal class Line
+    internal class Line : IComparable<Line>
+
     {
         private double x1;
         private double y1;
@@ -43,6 +44,17 @@ namespace LineComparison
         public override int GetHashCode()
         {
             return HashCode.Combine(x1, y1, x2, y2);
+        }
+
+        public int CompareTo(Line other)
+        {
+            if (other == null)
+                return 1;
+
+            double thisLength = this.CalculateLength();
+            double otherLength = other.CalculateLength();
+
+            return thisLength.CompareTo(otherLength);
         }
 
 
